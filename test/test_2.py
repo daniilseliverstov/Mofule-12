@@ -15,11 +15,8 @@ class TournamentTest(unittest.TestCase):
 
     @classmethod
     def tearDownClass(cls):
-        res_dict = {}
-        for kay, value in cls.all_results.items():
-            for k, v in value.items():
-                res_dict[k] = str(v)
-            print(res_dict)
+        for result in cls.all_results.values():
+            print({key: str(runner) for key, runner in result.items()})
 
     def test_1(self):
         first_run = rat.Tournament(90, self.runner1, self.runner3)
